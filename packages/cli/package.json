@@ -1,0 +1,25 @@
+{
+  "name": "@repo/cli",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup-node",
+    "start": "node dist/index.mjs"
+  },
+  "bin": {
+    "fastship-cli": "./dist/index.mjs"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "inquirer": "^12.5.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.14.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

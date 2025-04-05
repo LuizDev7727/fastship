@@ -1,0 +1,9 @@
+{
+  "name": "@repo/casl",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@casl/ability": "^6.7.3",
+    "zod": "^3.24.2"
+  }
+}

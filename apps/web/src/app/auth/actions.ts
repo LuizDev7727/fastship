@@ -1,29 +1,33 @@
 'use server'
 
-import { signInWithCredentials } from "@repo/http"
-import { signInWithCredentialsSchema } from "@repo/schemas"
-import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
+import { signInWithCredentials } from '@repo/http'
+import { signInWithCredentialsSchema } from '@repo/schemas'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
-export async function signInWtihCredentialsAction(prevState: { message: string, error: string, }, formData: FormData) {
+export async function signInWtihCredentialsAction(
+  prevState: { message: string; error: string },
+  formData: FormData
+) {
+  const result = signInWithCredentialsSchema.safeParse(
+    Object.fromEntries(formData)
+  )
 
-  const result = signInWithCredentialsSchema.safeParse(Object.fromEntries(formData))
-
-  if(!result.success) {
+  if (!result.success) {
     return { message: '', error: 'Check your credentials!' }
   }
 
-  const { email, password } = result.data;
+  const { email, password } = result.data
 
   const { data, error } = await signInWithCredentials({
     email,
-    password
+    password,
   })
-  
-  if(error) {
+
+  if (error) {
     return {
       message: '',
-      error: error.message
+      error: error.message,
     }
   }
 
@@ -31,7 +35,7 @@ export async function signInWtihCredentialsAction(prevState: { message: string, 
 
   const cookie = await cookies()
 
-  cookie.set('fastship-theme', token, {
+  cookie.set('fastship-token', token, {
     httpOnly: true,
     secure: true,
   })

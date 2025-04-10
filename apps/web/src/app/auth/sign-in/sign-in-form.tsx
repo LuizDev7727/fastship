@@ -1,11 +1,11 @@
 'use client'
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 import { useActionState } from "react";
 import { signInWtihCredentialsAction } from "../actions";
-import { Loader2 } from "lucide-react";
 
 export default function SignInForm() {
 
@@ -31,7 +31,7 @@ export default function SignInForm() {
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
             <a
-              href="#"
+              href="/auth/forget-password"
               className="ml-auto text-sm underline-offset-4 hover:underline"
             >
               Forgot your password?

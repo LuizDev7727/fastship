@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import ThemeSwitcher from "@/components/theme-switcher";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export default function DashboardLayout({
@@ -11,8 +12,9 @@ export default function DashboardLayout({
       <AppSidebar />
       <SidebarInset>
         <div className="p-4">
-          <div>
+          <div className="flex items-center justify-between">
             <SidebarTrigger className="-ml-1" />
+            <ThemeSwitcher/>
           </div>
           {children}
         </div>

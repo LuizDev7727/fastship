@@ -2,10 +2,8 @@
 
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
   Command,
-  GalleryVerticalEnd,
+  Rocket,
   Settings2,
   SquareTerminal,
 } from "lucide-react"
@@ -31,8 +29,8 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
+      name: "Fastship Inc",
+      logo: Rocket,
       plan: "Enterprise",
     },
     {

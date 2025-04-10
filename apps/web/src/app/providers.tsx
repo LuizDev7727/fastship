@@ -1,4 +1,6 @@
-import { ReactNode } from "react"
+import { ThemeProvider } from "@/components/theme-provider"
+import MswClientProvider from "@/providers/msw.provider"
+import type { ReactNode } from "react"
 
 type ProvidersProps = {
   children: ReactNode
@@ -7,7 +9,11 @@ type ProvidersProps = {
 export default function Providers({ children }: ProvidersProps) {
   return (
     <>
-      {children}
+      <ThemeProvider attribute={'class'} defaultTheme="system" storageKey="fastship-theme">
+        <MswClientProvider>
+          {children}
+        </MswClientProvider>
+      </ThemeProvider>
     </>
   )
 }

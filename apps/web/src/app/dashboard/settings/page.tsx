@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Settings() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <SearchBar/>
-    </Suspense>
+    <div>
+      <h1>Settings</h1>
+    </div>
   )
 }

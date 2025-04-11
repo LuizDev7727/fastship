@@ -44,6 +44,19 @@ services:
       - ./data/pnpm-store:/root/.pnpm-store
       - ./data/turbo-cache:/app/.turbo
 
+  py:
+    container_name: fastship-python
+    build:
+      context: ./apps/py
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - pg-docker
+    networks:
+      - dev-network
+
 networks:
   dev-network:
     driver: bridge

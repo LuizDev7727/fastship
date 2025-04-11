@@ -16,6 +16,33 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@core/*": [
+        "./src/core/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@domain/*": [
+        "./src/domain/*"
+      ],
+      "@infra/*": [
+        "./src/infra/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@test/*": [
+        "./test/*"
+      ]
+    }
   }
 }

@@ -6,7 +6,7 @@ import Providers from "./providers";
 
 enableMSW()
 
-const inter = Inter()
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Fastship",

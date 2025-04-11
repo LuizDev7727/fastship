@@ -1,0 +1,49 @@
+services:
+  pg-docker:
+    container_name: fastship-pg
+    image: bitnami/postgresql
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=fastship
+      - POSTGRES_PASSWORD=fastship
+      - POSTGRES_DB=fastship
+    networks:
+      - dev-network
+  api:
+    container_name: fastship-api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://fastship:fastship@pg-docker:5432/fastship
+    ports:
+      - 3333:3333
+    depends_on:
+      - pg-docker
+    networks:
+      - dev-network
+    volumes:
+      - ./data/pnpm-store:/root/.pnpm-store
+      - ./data/turbo-cache:/app/.turbo
+
+  web:
+    container_name: fastship-web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    networks:
+      - dev-network
+    volumes:
+      - ./data/pnpm-store:/root/.pnpm-store
+      - ./data/turbo-cache:/app/.turbo
+
+networks:
+  dev-network:
+    driver: bridge

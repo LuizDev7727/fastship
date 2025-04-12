@@ -4,6 +4,7 @@ import { DomainError } from '@src/core/domain/errors/domain-error'
 export type UserProps = {
   email: string
   name: string
+  password: string
 }
 
 export class User {
@@ -29,7 +30,6 @@ export class User {
     if (!email.includes('@')) {
       throw new DomainError('User - e-mail is not valid')
     }
-
     this.props.email = email
   }
 
@@ -42,5 +42,16 @@ export class User {
       throw new DomainError('User - name is not valid')
     }
     this.props.name = name
+  }
+
+  get password(): string {
+    return this.props.password
+  }
+
+  set password(password: string) {
+    if (password.length < 3) {
+      throw new DomainError('User - password is not valid')
+    }
+    this.props.password = password
   }
 }

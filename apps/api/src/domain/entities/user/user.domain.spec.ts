@@ -10,6 +10,7 @@ describe('User - Domain', () => {
     expect(() => makeUser({ name: '' })).toThrow('User - name is not valid')
   })
 
-  it('should not instantiate a user class without a email', () => {})
-  expect(() => makeUser({ email: '' })).toThrow('User - e-mail is not valid')
+  it('should not instantiate a user class without a email', () => {
+    expect(() => makeUser({ email: '' })).toThrow('User - e-mail is not valid')
+  })
 })
